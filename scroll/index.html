@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<title>Document</title>
+<script type="text/javascript" src="mScroll.js"></script>
+<style type="text/css">
+body,
+html {
+	margin: 0;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+#wrap {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#list li {
+	font: 16px/40px "宋体";
+	border-bottom: 1px solid #000
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<ul id="list"></ul>
+</div>
+<script type="text/javascript">
+(function(){
+	var inner = "";
+	for(var i = 0; i < 100; i++){
+		inner += '<li>这是第'+i+'个里</li>';
+	}
+	list.innerHTML = inner;
+})();
+var mS = new mScroll({
+	wrap: wrap,//滑动外框
+	dir: "y",//方向 (x||y) 默认值y
+	start: function(){
+		console.log('按下的回调');
+	},
+	move: function(){
+		console.log('移动中的回调');	
+	},
+	end: function(){
+		console.log('抬起的回调');	
+	},
+	over: function(){
+		console.log('结束的回调');	
+	}
+});
+</script>
+</body>
+</html>
