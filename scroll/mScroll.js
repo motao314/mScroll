@@ -112,7 +112,7 @@ class mScroll {
 		if(nowTarget != target){
 			type = "back";
 		}
-		let time = this.getTime(target,type);
+		let time = this.getTime(nowTarget,type);
 		let _this = this;
 		let init = {
 			type: type,
@@ -213,7 +213,7 @@ class mScroll {
 	}
 	getTime(target,type){
 		let dis = Math.abs(target - this.getScroll());
-		let time = type == "ease"?dis*1.1:dis*1.2;
+		let time = type == "ease"?dis*1.5:dis*1.6;
 		return (time < 200 && time > 0)?200:time;  
 	}
 	css(el,attr,val){
